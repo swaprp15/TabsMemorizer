@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+	"name": "SaveTabs",
+	"description": "This extension demonstrates a browser action with kittens.",
+	"version": "1.0",
+	"permissions": ["tabs", "storage"],
+	"background": {
+    		"page" : "background.html" 
+			},
+	"browser_action": {
+    				"default_icon": "icon.png",
+    				"default_popup": "popup.html"
+			  }
+}

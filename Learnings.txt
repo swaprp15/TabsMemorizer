@@ -1,0 +1,5 @@
+Content Security policy
+
+local.set vs sync.set
+
+arrays, JSON, stringifys
