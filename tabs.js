@@ -1,6 +1,16 @@
 $(document).ready(function() {
 	//restoreTabs();
 
+	updatePanel();
+
+	//<input type="radio" name="" value=""><br>
+
+	//saveTabs();
+});
+
+
+function updatePanel(savedName)
+{
 	chrome.storage.local.get("saveMyTabs", function(rows){
 		console.log(rows);
 				
@@ -13,11 +23,13 @@ $(document).ready(function() {
 
 		console.log(JSON.parse(rows['saveMyTabs']));
 	});
+}
 
-	//<input type="radio" name="" value=""><br>
 
-	//saveTabs();
-});
+function addToPanel(savedName)
+{	
+		$('#panel ul').append('<li><input type="radio" name="stored" value="' + savedName + '">' + savedName + '</input></li>'); 
+}
 
 function myFunction(tablink) 
 {
@@ -64,7 +76,6 @@ function saveTabs()
 
 		var higherLevelJSON = {};
 		
-		
 		chrome.storage.local.get("saveMyTabs", function(value){
 	
 		if(typeof value['saveMyTabs'] === 'undefined')
@@ -77,25 +88,33 @@ function saveTabs()
 			//higherLevelJSON = value['saveMyTabs'];
 		}
 
-		higherLevelJSON[saveName] = tabList;
-		
-		});
-		
-
 		//higherLevelJSON[saveName] = tabList;
-	
 
-		var obj = {}
+
+		higherLevelJSON[saveName] = tabList;
+
+		var obj = {};
 
 		obj['saveMyTabs'] = JSON.stringify(higherLevelJSON);
 		//obj['saveMyTabs'] = higherLevelJSON;
 	
-		alert('JSON to be stored' + JSON.stringify(higherLevelJSON));
+		//alert('JSON to be stored' + JSON.stringify(higherLevelJSON));
 		//alert('JSON to be stored' + higherLevelJSON);
 
 		chrome.storage.local.set(obj, function(){console.log('saved data');});	
 
+		addToPanel(saveName);
+
+		
 		});
+		
+
+
+		});
+
+		
+
+
 }
 
 
@@ -126,11 +145,9 @@ function restoreTabs()
 				//alert(url);
 				chrome.tabs.create({url:url});
 			});
-		}		
-		
+		}
 		});
 
-		//console.log(JSON.parse(rows['saveMyTabs']));
 	});
 
 
