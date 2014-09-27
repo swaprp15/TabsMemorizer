@@ -8,6 +8,37 @@ $(document).ready(function() {
 	//saveTabs();
 });
 
+function deleteRecord(){
+
+	//var toDelete = 'Description';
+
+	var myRadio = $('input[name=stored]');
+
+	var toDelete = myRadio.filter(':checked').val();
+
+	chrome.storage.local.get("saveMyTabs", function(rows){
+		console.log(rows);
+
+		var newData = {}
+				
+		$.each(JSON.parse(rows['saveMyTabs']), function(key, val){
+			console.log(key);
+	
+		if(key != toDelete)
+		{
+			newData[key] = val;
+		}
+
+		});
+
+		
+
+		console.log(JSON.parse(obj['saveMyTabs']));
+
+		//chrome.storage.local.set(obj, function(){console.log('saved data');});
+
+	});
+}
 
 function updatePanel(savedName)
 {
@@ -29,14 +60,6 @@ function updatePanel(savedName)
 function addToPanel(savedName)
 {	
 		$('#panel ul').append('<li><input type="radio" name="stored" value="' + savedName + '">' + savedName + '</input></li>'); 
-}
-
-function myFunction(tablink) 
-{
-	console.log(tablink);
-	var oNewNode = document.createElement("LI");
-	$('#panel ul').append(oNewNode);
-	oNewNode.innerText=tablink;  
 }
 
 /*
@@ -159,6 +182,7 @@ function restoreTabs()
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('#saveButton').addEventListener('click', saveTabs);
+	document.querySelector('#saveButton').addEventListener('click', saveTabs);
 	document.querySelector('#restoreButton').addEventListener('click', restoreTabs);
+	document.querySelector('#deleteButton').addEventListener('click', deleteRecord);
 });
