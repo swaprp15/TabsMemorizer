@@ -5,23 +5,89 @@
 	<script src='scripts/jquery-1.7.2.min.js'></script>
 	<script src="tabs.js"></script>
     <style>
-      body {
+      body 
+      {
         min-width: 357px;
         overflow-x: hidden;
+        background-color: #9C9C91;
+        background-color: #ADADAA;
+        background-color: #C4C4C4;
+        font-family: sans-serif;
       }
 
-      img {
+      img 
+      {
         margin: 5px;
         border: 2px solid black;
         vertical-align: middle;
         width: 75px;
         height: 75px;
       }
-      #wrapper {
-            height: 200px;
-            width: 100%;
-            overflow: auto;
-          }
+      #wrapper 
+      {
+        height: 200px;
+        width: 100%;
+        overflow: auto;
+      }
+
+      .headingText
+      {
+          color:#6D2781; 
+          color: #D41419;
+          color: #363636;
+      }
+
+      .myButton {
+      background-color:#9a6af5;
+      background-color:#a57bfa;
+      -moz-border-radius:28px;
+      -webkit-border-radius:28px;
+      border-radius:28px;
+      border:1px solid #18ab29;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-family:arial;
+      font-size:17px;
+      padding:3px 7px;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #2f6627;
+      width: 80px;
+    }
+    .myButton:hover {
+      background-color:#5cbf2a;
+    }
+    .myButton:active {
+      position:relative;
+      top:1px;
+    }
+
+    input[type="text"] 
+    {
+      
+      margin-right: 10px;
+      font-family: sans-serif;
+      font-size: 17px;
+      box-shadow: none;
+      border-radius: none;
+    }
+
+    li
+    {
+      font-family: sans-serif;
+      margin: 4px;
+    }
+
+    .heading
+    {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+       color: #363636;
+       margin-bottom: 2px;
+       color: #9A0000;
+       color: #A30C0C;
+    }
+    
+
     </style>
 
     <!--
@@ -35,12 +101,15 @@
 
   </head>
   <body>
-    <b>Please give a name to this session and click 'store' if you would like to store it.</b>
-    <br/></br>
+    <!--<b class="headingText">Please give a name to this session and click 'Save' if you would like to store it.</b>-->
+    <center><b class="heading">Tabs Momorizer</b></center>
+    <hr/>
+    <br/>
   	<input id="saveName" type="text" Placeholder="Name"/>
-  	<input id="saveButton" type="submit" value="Store" />
+  	<input class="myButton"  id="saveButton" type="submit" value="Save" />
     <br/><br/>
-      <b>Your previously stored sessions : </b>
+    <hr/>
+      <b class="headingText">Your previously saved sessions : </b>
     <br/><br/>
     <div id="wrapper">
       <div id="panel">
@@ -51,8 +120,8 @@
 
     <br/>
     <center>
-  	<input id="restoreButton" type="submit" value="Restore" />
-    <input id="deleteButton" type="submit" value="Delete" />
+  	<input class="myButton" id="restoreButton" type="submit" value="Restore" />
+    <input class="myButton" id="deleteButton" type="submit" value="Delete" />
     </center>
   </body>
 </html>
