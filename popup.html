@@ -17,6 +17,11 @@
         width: 75px;
         height: 75px;
       }
+      #wrapper {
+            height: 200px;
+            width: 100%;
+            overflow: auto;
+          }
     </style>
 
     <!--
@@ -30,21 +35,25 @@
 
   </head>
   <body>
-    Please give a name to this session and click 'store' if you would like to store it.
-  <br/>
-	<input id="saveName" type="text" value="Description"/>
-	<input id="saveButton" type="submit" value="Store" />
-  <br/><br/>
-    <b>Your previously stored sessions : </b>
-  <br/><br/>
-	<div id="panel">
-		<ul style="list-style-type:none;padding:0;margin:0">
-		</ul>	
-	<div/>
-  <br/>
-	<input id="restoreButton" type="submit" value="Restore" />
-  <input id="deleteButton" type="submit" value="Delete" />
+    <b>Please give a name to this session and click 'store' if you would like to store it.</b>
+    <br/></br>
+  	<input id="saveName" type="text" Placeholder="Name"/>
+  	<input id="saveButton" type="submit" value="Store" />
+    <br/><br/>
+      <b>Your previously stored sessions : </b>
+    <br/><br/>
+    <div id="wrapper">
+      <div id="panel">
+      	<ul style="list-style-type:none;padding:0;margin:0">
+      	</ul>	
+      </div>
+    </div>
 
+    <br/>
+    <center>
+  	<input id="restoreButton" type="submit" value="Restore" />
+    <input id="deleteButton" type="submit" value="Delete" />
+    </center>
   </body>
 </html>
 
