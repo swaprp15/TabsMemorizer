@@ -16,6 +16,7 @@ function deleteRecord(){
 
 	var toDelete = myRadio.filter(':checked').val();
 
+	// These are async functions - so be careful
 	chrome.storage.local.get("saveMyTabs", function(rows){
 		console.log(rows);
 
@@ -31,20 +32,31 @@ function deleteRecord(){
 
 		});
 
-		
+		var obj = {};
+
+		obj['saveMyTabs'] = JSON.stringify(newData);
+
+		//myRadio.filter(':checked').remove();
+
+		chrome.storage.local.set(obj, function(){console.log('saved data');});
+
 
 		console.log(JSON.parse(obj['saveMyTabs']));
+
+		updatePanel();
 
 		//chrome.storage.local.set(obj, function(){console.log('saved data');});
 
 	});
 }
 
-function updatePanel(savedName)
+function updatePanel()
 {
 	chrome.storage.local.get("saveMyTabs", function(rows){
 		console.log(rows);
 				
+		$('#panel ul').empty();
+
 		$.each(JSON.parse(rows['saveMyTabs']), function(key, val){
 			console.log(key);
 	

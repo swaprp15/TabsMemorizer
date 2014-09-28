@@ -1,0 +1,9 @@
+Add a scroll bar
+
+Background etc.
+
+Dont' allow duplicate names - I guess its handled already as object is like hashmap
+
+Sort the stored list - may be provide an option
+
+
